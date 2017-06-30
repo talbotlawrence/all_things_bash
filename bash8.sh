@@ -8,7 +8,7 @@ fi
 
 read -p "Enter 2 numbers again" my_number1 my_number2
 
-number1=${my_number1//[[:blank:]]/sneeze}
+number1=${my_number1//[[:blank:]]/sneeze}		#does blank do anything??
 number2=${my_number2//8/boom}
 
 echo "$number1"

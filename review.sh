@@ -260,11 +260,12 @@ echo "I am ${name:=Derek}"
 echo $name
 #################################################################################################
 read -p "How old are you : " age
+
 # Check the value of age
 case $age in
 	# Match numbers 0 - 4
 	[0-4])
-	echo "To young for school"
+	echo "Too young for school"
 	;; # Stop checking further
 	# Match only 5
 	5)
@@ -277,22 +278,26 @@ case $age in
 	;;
 	# Default action
 	*)
-	echo "You are to old for school"
+	echo "You are too old for school"
 	;;
 esac # End case
 #################################################################################################
 can_vote=0
 age=18
-((age>=18?(can_vote=1):(can_vote=0)))
+(( age>=18?(can_vote=1):(can_vote=0) ))
 echo "Can Vote : $can_vote"
 #################################################################################################
 rand_str="A random string"
+
 # Get string length
 echo "String Length : ${#rand_str}"
+
 # Get string slice starting at index (0 index)
 echo "${rand_str:2}"
+
 # Get string with starting and ending index
 echo "${rand_str:2:7}"
+
 # Return whats left after A
 echo "${rand_str#*A }"
 #################################################################################################
@@ -342,38 +347,49 @@ done
 # Create an array
 fav_nums=(3.14 2.718 .57721 4.6692)
 echo "Pi : ${fav_nums[0]}"
+
 # Add value to array
 fav_nums[4]=1.618
 echo "GR : ${fav_nums[4]}"
+
 # Add group of values to array
 fav_nums+=(1 7)
+
 # Output all array values
 for i in ${fav_nums[*]}; do
 	echo $i;
 done
+
 # Output indexes
-for i in ${!fav_nums[@]}; do
+for i in ${fav_nums[@]}; do
 	echo $i;
 done
+
 # Get number of items in array
 echo "Array Length : ${#fav_nums[@]}"
+
 # Get length of array element
 echo "Index 3 length : ${#fav_nums[3]}"
+
 # Sort an array
 sorted_nums=($(for i in "${fav_nums[@]}"; do
 echo $i;
 done | sort))
+
 for i in ${sorted_nums[*]}; do
 	echo $i;
 done
+
 # Delete array element
 unset 'sorted_nums[1]'
+
 # Delete Array
 unset sorted_nums
 #################################################################################################
 # Print the first argument
 echo "1st Argument : $1"
 sum=0
+
 # $# tells you the number of arguments
 while [[ $# -gt 0 ]]; do
 	# Get the first argument
