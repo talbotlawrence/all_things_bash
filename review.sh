@@ -1,11 +1,13 @@
 #!/bin/bash
 declare -r NUM1=5 # Declare a constant
 num2=4
+
 # Use arithmetic expansion for adding
 num3=$((NUM1+num2))
 num4=$((NUM1-num2))
 num5=$((NUM1*num2))
 num6=$((NUM1/num2))
+
 # Place variables in strings with $
 echo "5 + 4 = $num3"
 echo "5 - 4 = $num4"
@@ -13,8 +15,10 @@ echo "5 * 4 = $num5"
 echo "5 / 4 = $num6"
 echo $(( 5**2 ))
 echo $(( 5%4 ))
+
 # Assignment operators allow for shorthand arithmetic
 # +=, -=, *=, /=
+
 rand=5
 let rand+=4
 echo "$rand"
@@ -23,11 +27,13 @@ echo "rand++ = $(( rand++ ))"
 echo "++rand = $(( ++rand ))"
 echo "rand-- = $(( rand-- ))"
 echo "--rand = $(( --rand ))"
+
 # Use Python to add floats
 num7=1.2
 num8=3.4
 num9=$(python -c "print $num7+$num8")
 echo $num9
+
 # You can print over multiple lines with a Here Script
 # cat prints a file or any string past to it
 cat << END
@@ -43,6 +49,7 @@ getDate() {
 	return
 }
 getDate
+
 # This is a global variable
 name="Derek"
 # Local variable values aren't available outside of the function
@@ -52,6 +59,7 @@ demLocal() {
 }
 demLocal
 echo "$name"
+
 # A function that receives 2 values and prints a sum
 getSum() {
 	# Attributes are retrieved by referring to $1, $2, etc.
@@ -99,18 +107,22 @@ read -p "Enter a number : " num
 if ((num == 10)); then
 	echo "Your number equals 10"
 fi
+
 if ((num > 10)); then
 	echo "It is greater then 10"
 else
 	echo "It is less then 10"
 fi
+
 if (( ((num % 2)) == 0 )); then
 	echo " It is even"
 fi
+
 # You can use logical operators like &&, || and !
 if (( ((num > 0)) && ((num < 11)) )); then
 	echo "$num is between 1 and 10"
 fi
+
 # && and || can be used as control structures
 # Create a file and then if that worked open it in Vim
 touch samp_file && vim samp_file
@@ -126,55 +138,70 @@ str3="Happy"
 if [ "$str1" ]; then
 	echo "$str1 is not null"
 fi
+
 if [ -z "$str1" ]; then
 	echo "str1 has no value"
 fi
+
 # Check for equality
 if [ "$str2" == "$str3" ]; then
 	echo "$str2 equals $str3"
 elif [ "$str2" != "$str3" ]; then
 	echo "$str2 is not equal to $str3"
 fi
+
 if [ "$str2" > "$str3" ]; then
 	echo "$str2 is greater then $str3"
 elif [ "$str2" < "$str3" ]; then
 	echo "$str2 is less then $str3"
 fi
+
 # Check the file test_file1 and test_file2
 file1="./test_file1"
 file2="./test_file2"
 if [ -e "$file1" ]; then
-	echo "$file1 exists"
-	if [ -f "$file1" ]; then
-		echo "$file1 is a normal file"
-	fi
-	if [ -r "$file1" ]; then
-		echo "$file1 is readable"
-	fi
-	if [ -w "$file1" ]; then
-		echo "$file1 is writable"
-	fi
-	if [ -x "$file1" ]; then
-		echo "$file1 is executable"
-	fi
-	if [ -d "$file1" ]; then
-		echo "$file1 is a directory"
-	fi
-	if [ -L "$file1" ]; then
-		echo "$file1 is a symbolic link"
-	fi
-	if [ -p "$file1" ]; then
-		echo "$file1 is a named pipe"
-	fi
-	if [ -S "$file1" ]; then
-		echo "$file1 is a network socket"
-	fi
-	if [ -G "$file1" ]; then
-		echo "$file1 is owned by the group"
-	fi
-	if [ -O "$file1" ]; then
-		echo "$file1 is owned by the userid"
-	fi
+echo "$file1 exists"
+
+if [ -f "$file1" ]; then
+	echo "$file1 is a normal file"
+fi
+
+if [ -r "$file1" ]; then
+	echo "$file1 is readable"
+fi
+
+if [ -w "$file1" ]; then
+	echo "$file1 is writable"
+fi
+
+if [ -x "$file1" ]; then
+	echo "$file1 is executable"
+fi
+
+if [ -d "$file1" ]; then
+	echo "$file1 is a directory"
+fi
+
+if [ -L "$file1" ]; then
+	echo "$file1 is a symbolic link"
+fi
+
+if [ -p "$file1" ]; then
+	echo "$file1 is a named pipe"
+fi
+
+if [ -S "$file1" ]; then
+	echo "$file1 is a network socket"
+fi
+
+if [ -G "$file1" ]; then
+	echo "$file1 is owned by the group"
+fi
+
+if [ -O "$file1" ]; then
+	echo "$file1 is owned by the userid"
+fi
+
 fi
 #################################################################################################
 read -p "Validate Date : " date
@@ -186,8 +213,10 @@ else
 fi
 #################################################################################################
 read -p "Enter 2 Numbers to Sum : " num1 num2
-sum=$((num1+num2))
+sum=$((num1+num2))		#could have spaces here $(( var + var ))
+
 echo "$num1 + $num2 = $sum"
+
 # Hide the input with the s code
 read -sp "Enter the Secret Code" secret
 if [ "$secret" == "password" ]; then
@@ -200,24 +229,31 @@ fi
 OIFS="$IFS"
 # Set what separates the input values
 IFS=","
+
 read -p "Enter 2 numbers to add separated by a comma" num1 num2
+
 # Use the parameter expansion ${} to substitute any whitespace
 # with nothing
-num1=${num1//[[:blank:]]/}
+num1=${num1//[[:blank:]]/}	#does blank do anything???
 num2=${num2//[[:blank:]]/}
 
 sum=$((num1+num2))
 echo "$num1 + $num2 = $sum"
+
 # Reset IFS to the original value
 IFS="$OIFS"
+
 # Parameter expansion allows you to do this
 name="Derek"
 echo "${name}'s Toy"
+
 # The search and replace allows this
 samp_string="The dog climbed the tree"
 echo "${samp_string//dog/cat}"
+
 # You can assign a default value if it doesn't exist
 echo "I am ${name:-Derek}"
+
 # This uses the default if it doesn't exist and assigns the value
 # to the variable
 echo "I am ${name:=Derek}"
