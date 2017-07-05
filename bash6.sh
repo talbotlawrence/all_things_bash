@@ -6,7 +6,7 @@ if [ -e "$file1" ]; then
 fi
 
 if [ -r "$file1" ]; then
-		echo "$file1 is readable"
+	echo "$file1 is readable"
 fi
 
 if [ -w "$file2" ]; then

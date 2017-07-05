@@ -10,20 +10,22 @@ echo "The full array is ${my_array_of_numbers[*]}"
 
 #################################################################################################
 
-favorite_numbers=(7 77 1 3)
+favorite_numbers=(7 77 7 82)
 
 for i in ${favorite_numbers[*]}; do
-	echo $i;
+	echo "The * is $i";
 done
 
 echo "Break"
 
 for in in ${favorite_numbers[@]}; do
-	echo $i;
+	echo "Now using the @ $i";
 done
 
+echo ""
 echo "Array length: ${#favorite_numbers[@]}"
 echo "Index 3 length: ${#favorite_numbers[3]}"
+echo ""
 
 sorted_numbers=($(for i in "${favorite_numbers[@]}"; do
 	echo $i;
@@ -34,7 +36,7 @@ for i in ${sorted_numbers[*]}; do
 done
 
 unset 'sorted_numbers[0]'
-echo "${sorted_numbers[*]}"
+echo "After the unset: ${sorted_numbers[*]}"
 
 unset sorted_numbers
 echo "Now it's ${sorted_numbers[*]}"

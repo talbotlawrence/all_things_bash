@@ -6,6 +6,7 @@ sum=1
 while [[ $# -gt 0 ]]; do
 	num=$1
 	sum=$(( sum + num ))
-	shift
+	shift					#I believe shift is like shift (off) arrays in other languages
 done
+
 echo "Sum: $sum"

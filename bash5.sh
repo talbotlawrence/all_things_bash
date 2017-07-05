@@ -2,11 +2,11 @@ string1=""
 string2="Sad"
 string3="Happy"
 
-if [ "string1" ]; then
+if [ "string1" ]; then		#is the variable has value, then it is true
 	echo "$string1 is not null"
 fi
 
-if [ -z "$string1" ]; then
+if [ -z "$string1" ]; then		#-z means the variable has no size/length
 	echo "$string1 has no value"
 fi
 

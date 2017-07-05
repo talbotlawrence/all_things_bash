@@ -254,8 +254,7 @@ echo "${samp_string//dog/cat}"
 # You can assign a default value if it doesn't exist
 echo "I am ${name:-Derek}"
 
-# This uses the default if it doesn't exist and assigns the value
-# to the variable
+# This uses the default if it doesn't exist and assigns the value to the variable
 echo "I am ${name:=Derek}"
 echo $name
 #################################################################################################
